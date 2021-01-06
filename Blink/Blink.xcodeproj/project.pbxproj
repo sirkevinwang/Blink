@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A82206B25A49604008007D9 /* CameraInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82206A25A49604008007D9 /* CameraInputController.swift */; };
+		0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82209525A53B35008007D9 /* MenuToggleView.swift */; };
 		0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */; };
 		0AF04AE425A3FE5F00879D9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE325A3FE5F00879D9B /* ContentView.swift */; };
 		0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE525A3FE6100879D9B /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		0A82206A25A49604008007D9 /* CameraInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInputController.swift; sourceTree = "<group>"; };
+		0A82209525A53B35008007D9 /* MenuToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleView.swift; sourceTree = "<group>"; };
 		0AF04ADE25A3FE5F00879D9B /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF04AE325A3FE5F00879D9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A82209425A53B03008007D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A82209525A53B35008007D9 /* MenuToggleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0AF04AD525A3FE5F00879D9B = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +67,7 @@
 		0AF04AE025A3FE5F00879D9B /* Blink */ = {
 			isa = PBXGroup;
 			children = (
+				0A82209425A53B03008007D9 /* Views */,
 				0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */,
 				0AF04AE325A3FE5F00879D9B /* ContentView.swift */,
 				0AF04AE525A3FE6100879D9B /* Assets.xcassets */,
@@ -148,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF04AE425A3FE5F00879D9B /* ContentView.swift in Sources */,
+				0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */,
 				0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */,
 				0A82206B25A49604008007D9 /* CameraInputController.swift in Sources */,
 			);

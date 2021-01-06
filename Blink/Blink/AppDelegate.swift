@@ -11,22 +11,23 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var window: NSWindow!
-    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    let camera = CameraInputController()
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
+    @ObservedObject var camera = CameraInputController()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
+        // this prevents the app icon from showing in Dock
+        NSApp.setActivationPolicy(.accessory)
         constructMenu()
         camera.start()
     }
     
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-    
     func constructMenu() {
         let menu = NSMenu()
+        let toggleViewItem = NSMenuItem()
+        let toggleView = MenuToggleView()
+        toggleViewItem.view = NSHostingView(rootView: toggleView)
+        toggleViewItem.view?.frame = CGRect(x: 0, y: 0, width: 200.0, height: 50.0)
+        menu.addItem(toggleViewItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "About", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
