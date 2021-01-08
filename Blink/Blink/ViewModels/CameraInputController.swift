@@ -9,7 +9,9 @@ import AVFoundation
 import CoreImage
 
 final class CameraInputController: NSObject, ObservableObject {
-    @Published var blinkCount = 0
+    var blinkCount = 0
+    @Published var isTracking = false
+    
     var blinkCache = [Int]()
     private var faceDetector: CIDetector? = {
         let detectorOptions = [CIDetectorAccuracy : CIDetectorAccuracyHigh]
@@ -18,10 +20,9 @@ final class CameraInputController: NSObject, ObservableObject {
     }()
     private lazy var sampleBufferDelegateQueue = DispatchQueue(label: "CameraInput")
     private let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown, .builtInMicrophone, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
-
+    
     private lazy var captureSession: AVCaptureSession = {
         let session = AVCaptureSession()
-        session.sessionPreset = .vga640x480
         let device = getAVCaptureDevice(at: 1)
         let input = try! AVCaptureDeviceInput(device: device)
         session.addInput(input)
@@ -53,11 +54,14 @@ final class CameraInputController: NSObject, ObservableObject {
 extension CameraInputController {
     func start() {
         self.timer.invalidate()
+        self.blinkCount = 0
+        self.blinkCache = [Int]()
         guard !self.captureSession.isRunning else {
             return
         }
-        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkBlinkCount), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkBlinkCount), userInfo: nil, repeats: true)
         self.captureSession.startRunning()
+        self.isTracking = true
     }
     
     func stop() {
@@ -66,6 +70,7 @@ extension CameraInputController {
             return
         }
         self.captureSession.stopRunning()
+        self.isTracking = false
     }
     
     @objc func checkBlinkCount() {
@@ -87,27 +92,26 @@ extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
             let features = detector.features(in: cameraImage, options: options)
             
             if (features.count == 1) {
-                for feature in features as! [CIFaceFeature] {
-                    if (feature.leftEyeClosed && feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
-                        blinkCache.append(1)
-                        
-                        if blinkCache.count > 4 {
-                            blinkCache.remove(at: 0)
-                        }
-                        
-                        if blinkCache.reduce(0, +) == 1 {
-                            blinkCount += 1
-                            print(blinkCount)  
-                        }
-                        
-                    } else {
-                        blinkCache.append(0)
-                        
-                        if blinkCache.count > 4 {
-                            blinkCache.remove(at: 0)
-                        }
+                let feature = features.first as! CIFaceFeature
+                if (feature.leftEyeClosed && feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
+                    blinkCache.append(1)
+                    
+                    if blinkCache.count > 3 {
+                        blinkCache.remove(at: 0)
+                    }
+                    
+                    if blinkCache.reduce(0, +) == 1 {
+                        blinkCount += 1
+                        print(blinkCount)
+                    }
+                    
+                } else {
+                    blinkCache.append(0)
+                    if blinkCache.count > 3 {
+                        blinkCache.remove(at: 0)
                     }
                 }
+                
             }
         }
     }
