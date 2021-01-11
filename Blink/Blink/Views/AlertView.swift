@@ -24,7 +24,11 @@ struct AlertView: View {
                 .fontWeight(.medium)
             
             if let blinkCnt = blinks {
-                Text("\(blinkCnt) blinks past minute")
+                Text("\(blinkCnt) blinks per minute")
+                    .font(.headline)
+                    .fontWeight(.medium)
+            } else {
+                Text("No face or blinks detected")
                     .font(.headline)
                     .fontWeight(.medium)
             }

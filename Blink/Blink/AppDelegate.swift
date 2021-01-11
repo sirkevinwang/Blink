@@ -60,15 +60,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
     }
     
-    func showBlinkAlert(blinkCnt: Int) {
-        let alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
-        let alertHostedView = NSHostingView(rootView: alert)
-        let bzNotification = BezelNotification(dismissInterval: 10.0, hostedView: alertHostedView)
-        bzNotification.show()
+    func showLowBlinkCountAlert(blinkCnt: Int) {
+        showAlert(of: .lowBlinkCount, blinkCnt: blinkCnt)
     }
     
-    func showAutoPauseAlert() {
+    func showNoFaceDetectedAlert() {
+        showAlert(of: .noFaceDetected, blinkCnt: nil)
+    }
+    
+    func showAlert(of type: BlinkAlertType, blinkCnt: Int?) {
+        var alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
+        if type == .noFaceDetected {
+            alert = AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)
+        }
         
+        let alertHostedView = NSHostingView(rootView: alert)
+        let bzNotification = BezelNotification(dismissInterval: 3.5, hostedView: alertHostedView)
+        bzNotification.runModal()
+    }
+    
+    enum BlinkAlertType {
+        case lowBlinkCount
+        case noFaceDetected
     }
 }
 

@@ -14,7 +14,6 @@
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
 		0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */; };
-		0AF04AE425A3FE5F00879D9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE325A3FE5F00879D9B /* ContentView.swift */; };
 		0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE525A3FE6100879D9B /* Assets.xcassets */; };
 		0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE825A3FE6100879D9B /* Preview Assets.xcassets */; };
 		0AF04AEC25A3FE6100879D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AEA25A3FE6100879D9B /* Main.storyboard */; };
@@ -29,7 +28,6 @@
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AF04ADE25A3FE5F00879D9B /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AF04AE325A3FE5F00879D9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AF04AE525A3FE6100879D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AF04AE825A3FE6100879D9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AF04AEB25A3FE6100879D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,10 +66,10 @@
 		0A82209425A53B03008007D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A7E4D6D25A82B75003CC98A /* Utilities */,
+				0A7E4D6A25A827E5003CC98A /* AlertView.swift */,
 				0A859CAA25A7DF6500E66296 /* AboutView.swift */,
 				0A82209525A53B35008007D9 /* MenuToggleView.swift */,
-				0A7E4D6A25A827E5003CC98A /* AlertView.swift */,
+				0A7E4D6D25A82B75003CC98A /* Utilities */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,7 +96,6 @@
 				0A22BEE925A820DE0074811B /* ViewModels */,
 				0A82209425A53B03008007D9 /* Views */,
 				0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */,
-				0AF04AE325A3FE5F00879D9B /* ContentView.swift */,
 				0AF04AE525A3FE6100879D9B /* Assets.xcassets */,
 				0AF04AEA25A3FE6100879D9B /* Main.storyboard */,
 				0AF04AED25A3FE6100879D9B /* Info.plist */,
@@ -186,7 +183,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF04AE425A3FE5F00879D9B /* ContentView.swift in Sources */,
 				0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */,
 				0A7E4D6B25A827E5003CC98A /* AlertView.swift in Sources */,
 				0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */,

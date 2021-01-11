@@ -97,7 +97,8 @@ public class BezelNotification {
         let newSession = NotificationSession(modal: false)
         self.previousShowSession = newSession
         fadeIn(session: newSession)
-        
+        window.level = NSWindow.Level(Int(CGWindowLevelForKey(.mainMenuWindow)) + 2)
+
         window.makeKeyAndOrderFront(nil)
     }
     
@@ -147,11 +148,12 @@ public class BezelNotification {
         alert.setContentCompressionResistancePriority(.required, for: .horizontal)
         visualEffectView.addSubview(alert)
         NSLayoutConstraint.activate([
-                   alert.leadingAnchor.constraint(equalTo: visualEffectView.leadingAnchor, constant: 10),
-                   alert.trailingAnchor.constraint(equalTo: visualEffectView.trailingAnchor, constant: -10),
-                   alert.topAnchor.constraint(equalTo: visualEffectView.topAnchor, constant: 10),
-                   alert.bottomAnchor.constraint(equalTo: visualEffectView.bottomAnchor, constant: -10)
-               ])
+           alert.leadingAnchor.constraint(equalTo: visualEffectView.leadingAnchor, constant: 10),
+           alert.trailingAnchor.constraint(equalTo: visualEffectView.trailingAnchor, constant: -10),
+           alert.topAnchor.constraint(equalTo: visualEffectView.topAnchor, constant: 10),
+           alert.bottomAnchor.constraint(equalTo: visualEffectView.bottomAnchor, constant: -10)
+       ])
+        self.window.level = .statusBar
     }
     
     var fadeOutTimer: Timer?
