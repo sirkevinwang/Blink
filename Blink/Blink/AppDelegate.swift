@@ -62,22 +62,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showBlinkAlert(blinkCnt: Int) {
         let alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
-
-        // Create the window and set the content view.
-        let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 220.0, height: 220.0),
-            styleMask: [.closable, .titled, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.titleVisibility = .hidden
-        window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-        window.standardWindowButton(.zoomButton)?.isHidden = true
-        window.isReleasedWhenClosed = false
-        window.contentView?.wantsLayer = true
-        window.center()
-        window.contentView = NSHostingView(rootView: alert)
-        window.titlebarAppearsTransparent = true
-        window.isOpaque = false
-        window.makeKeyAndOrderFront(nil)
+        let alertHostedView = NSHostingView(rootView: alert)
+        let bzNotification = BezelNotification(dismissInterval: 10.0, hostedView: alertHostedView)
+        bzNotification.show()
     }
     
     func showAutoPauseAlert() {

@@ -77,8 +77,8 @@ extension CameraInputController {
     @objc func checkBlinkCount() {
         if blinkCount < 15 {
             print("blink too slow")
-//            let appDelegate = NSApplication.shared.delegate as! AppDelegate
-//            appDelegate.showBlinkAlert(blinkCnt: blinkCount)
+            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+            appDelegate.showBlinkAlert(blinkCnt: blinkCount)
         } else {
             print("great job")
         }

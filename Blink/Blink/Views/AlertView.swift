@@ -30,8 +30,8 @@ struct AlertView: View {
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .visualEffect(material: .popover)
+        .frame(maxWidth: 220, maxHeight: 220)
+        .cornerRadius(12.0)
     }
 }
 
