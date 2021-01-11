@@ -7,11 +7,12 @@
 
 import AVFoundation
 import CoreImage
+import Cocoa
 
 final class CameraInputController: NSObject, ObservableObject {
-    var blinkCount = 0
     @Published var isTracking = false
-    
+    @Published var captureDeviceIndex = 0
+    var blinkCount = 0
     var blinkCache = [Int]()
     private var faceDetector: CIDetector? = {
         let detectorOptions = [CIDetectorAccuracy : CIDetectorAccuracyHigh]
@@ -76,6 +77,8 @@ extension CameraInputController {
     @objc func checkBlinkCount() {
         if blinkCount < 15 {
             print("blink too slow")
+//            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+//            appDelegate.showBlinkAlert(blinkCnt: blinkCount)
         } else {
             print("great job")
         }

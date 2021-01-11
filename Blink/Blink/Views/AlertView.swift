@@ -10,7 +10,7 @@ import SwiftUI
 struct AlertView: View {
     var alertText: String
     var alertIcon: Image
-    
+    var blinks: Int?
     var body: some View {
         VStack {
             alertIcon
@@ -22,6 +22,12 @@ struct AlertView: View {
             Text(alertText)
                 .font(.title)
                 .fontWeight(.medium)
+            
+            if let blinkCnt = blinks {
+                Text("\(blinkCnt) blinks past minute")
+                    .font(.headline)
+                    .fontWeight(.medium)
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -32,10 +38,10 @@ struct AlertView: View {
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"))
-            .frame(width: 200.0, height: 200.0, alignment: .center)
-            AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"))
-                .frame(width: 200.0, height: 200.0, alignment: .center)
+            AlertView(alertText: "Try to Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: 8)
+            .frame(width: 220.0, height: 220.0, alignment: .center)
+            AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: nil)
+                .frame(width: 220.0, height: 220.0, alignment: .center)
         }
         
     }

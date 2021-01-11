@@ -35,6 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
     
+    // TODO: show device picker
+    func constructCaptureDevicesMenu() {
+        
+    }
+    
     @objc func openAboutView() {
         let aboutView = AboutView()
 
@@ -53,6 +58,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.titlebarAppearsTransparent = true
         window.isOpaque = false
         window.makeKeyAndOrderFront(nil)
+    }
+    
+    func showBlinkAlert(blinkCnt: Int) {
+        let alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
+
+        // Create the window and set the content view.
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 220.0, height: 220.0),
+            styleMask: [.closable, .titled, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.titleVisibility = .hidden
+        window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        window.standardWindowButton(.zoomButton)?.isHidden = true
+        window.isReleasedWhenClosed = false
+        window.contentView?.wantsLayer = true
+        window.center()
+        window.contentView = NSHostingView(rootView: alert)
+        window.titlebarAppearsTransparent = true
+        window.isOpaque = false
+        window.makeKeyAndOrderFront(nil)
+    }
+    
+    func showAutoPauseAlert() {
+        
     }
 }
 
