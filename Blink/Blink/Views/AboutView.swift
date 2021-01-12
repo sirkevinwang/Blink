@@ -16,7 +16,11 @@ struct AboutView: View {
                 .frame(width: 100.0, height: 100.0)
             Text("Blink")
                 .font(.title)
-            Text("Copyright 2021 Yunxiao Wang")
+            Text("v1.0")
+                .foregroundColor(Color.gray)
+            
+            Text("Copyright © 2021 Yunxiao Wang")
+                .font(.footnote)
                 .padding()
             Spacer()
         }

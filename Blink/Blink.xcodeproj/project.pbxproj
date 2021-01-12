@@ -13,6 +13,7 @@
 		0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAA25A7DF6500E66296 /* AboutView.swift */; };
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
+		0AB3ABC325AD4D3300E3537D /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABC225AD4D3300E3537D /* FirstLaunchView.swift */; };
 		0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */; };
 		0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE525A3FE6100879D9B /* Assets.xcassets */; };
 		0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE825A3FE6100879D9B /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		0A859CAA25A7DF6500E66296 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
+		0AB3ABC225AD4D3300E3537D /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 		0AF04ADE25A3FE5F00879D9B /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF04AE525A3FE6100879D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				0A7E4D6A25A827E5003CC98A /* AlertView.swift */,
 				0A859CAA25A7DF6500E66296 /* AboutView.swift */,
 				0A82209525A53B35008007D9 /* MenuToggleView.swift */,
+				0AB3ABC225AD4D3300E3537D /* FirstLaunchView.swift */,
 				0A7E4D6D25A82B75003CC98A /* Utilities */,
 			);
 			path = Views;
@@ -189,6 +192,7 @@
 				0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */,
 				0A82206B25A49604008007D9 /* CameraInputController.swift in Sources */,
 				0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */,
+				0AB3ABC325AD4D3300E3537D /* FirstLaunchView.swift in Sources */,
 				0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

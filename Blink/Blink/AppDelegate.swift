@@ -35,6 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
     
+    func constructStatusItem() {
+        // TODO: add image to status bar item
+//        statusItem.button = NSStatusBarButton(image: NSImage(systemSymbolName: "star.fill", accessibilityDescription: nil), target: nil, action: nil)
+    }
+    
     // TODO: show device picker
     func constructCaptureDevicesMenu() {
         

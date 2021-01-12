@@ -14,6 +14,7 @@ final class CameraInputController: NSObject, ObservableObject {
     @Published var captureDeviceIndex = 0
     var blinkCount = 0
     var blinkCache = [Int]()
+    var noFaceMinutes = 0
     private var faceDetector: CIDetector? = {
         let detectorOptions = [CIDetectorAccuracy : CIDetectorAccuracyHigh]
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: detectorOptions)
@@ -57,6 +58,7 @@ extension CameraInputController {
         self.timer.invalidate()
         self.blinkCount = 0
         self.blinkCache = [Int]()
+        self.noFaceMinutes = 0
         guard !self.captureSession.isRunning else {
             return
         }
@@ -80,18 +82,19 @@ extension CameraInputController {
             if blinkCount == 0 {
                 // no face detected
                 print("no face detected")
-                self.stop()
-                appDelegate.showNoFaceDetectedAlert()
+                if noFaceMinutes + 1 >= 5 {
+                    self.stop()
+                    appDelegate.showNoFaceDetectedAlert()
+                } else {
+                    noFaceMinutes += 1
+                }
             } else {
                 // too few blinks
                 print("blink too slow")
+                blinkCount = 0
                 appDelegate.showLowBlinkCountAlert(blinkCnt: blinkCount)
             }
-            
-        } else {
-            print("great job")
         }
-        blinkCount = 0
     }
 }
 
@@ -105,7 +108,7 @@ extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
             
             if (features.count == 1) {
                 let feature = features.first as! CIFaceFeature
-                if (feature.leftEyeClosed && feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
+                if (feature.leftEyeClosed || feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
                     blinkCache.append(1)
                     
                     if blinkCache.count > 3 {
