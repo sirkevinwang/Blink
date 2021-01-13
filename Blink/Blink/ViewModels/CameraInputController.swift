@@ -121,9 +121,11 @@ extension CameraInputController {
             } else {
                 // too few blinks
                 print("blink too slow")
-                blinkCount = 0
                 appDelegate.showLowBlinkCountAlert(blinkCnt: blinkCount)
+                blinkCount = 0
             }
+        } else {
+            blinkCount = 0
         }
     }
 }

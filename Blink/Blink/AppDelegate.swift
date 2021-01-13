@@ -61,7 +61,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.runModal()
             NSApp.terminate(self)
         } else {
-            print(devices.count)
 //            // catches hot unplug of AVCaptureDevice
 //            if camera.captureDeviceIndex >= devices.count {
 //                camera.captureDeviceIndex = 0
@@ -164,6 +163,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showAlert(of type: BlinkAlertType, blinkCnt: Int?) {
+        print(blinkCnt)
         var alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
         if type == .noFaceDetected {
             alert = AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)
