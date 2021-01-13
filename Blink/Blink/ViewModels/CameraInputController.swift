@@ -21,11 +21,11 @@ final class CameraInputController: NSObject, ObservableObject {
         return detector
     }()
     private lazy var sampleBufferDelegateQueue = DispatchQueue(label: "CameraInput")
-    private let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown, .builtInMicrophone, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
+    private var deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown, .builtInMicrophone, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
     
     private lazy var captureSession: AVCaptureSession = {
         let session = AVCaptureSession()
-        let device = getAVCaptureDevice(at: 1)
+        let device = getAVCaptureDevice(at: captureDeviceIndex)
         let input = try! AVCaptureDeviceInput(device: device)
         session.addInput(input)
         
@@ -37,19 +37,49 @@ final class CameraInputController: NSObject, ObservableObject {
         output.alwaysDiscardsLateVideoFrames = true
         output.setSampleBufferDelegate(self, queue: self.sampleBufferDelegateQueue)
         session.addOutput(output)
-        
         return session
     }()
     
     var timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkBlinkCount), userInfo: nil, repeats: true)
     
+    func setAVCaptureDevice() {
+        let device = getAVCaptureDevice(at: captureDeviceIndex)
+        do {
+            let input = try AVCaptureDeviceInput(device: device)
+            if let originalInput = captureSession.inputs.first {
+                captureSession.removeInput(originalInput)
+            }
+            captureSession.addInput(input)
+        } catch {
+            // TODO: catch app crash here
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            if self.getAVCaptureDevices().isEmpty {
+                alert.messageText = "No Camera Detected"
+                alert.informativeText = "Make sure you have connected at least one camera."
+
+            } else {
+                alert.messageText = "Cannot Access Camera"
+                alert.informativeText = "Make sure you have given Blink permission to use your camera. Check your privacy settings in System Preferences for more detail."
+                
+            }
+            alert.runModal()
+            NSApp.terminate(self)
+            fatalError()
+        }
+    }
+    
     func getAVCaptureDevice(at index: Int) -> AVCaptureDevice {
-        let devices = self.deviceDiscoverySession.devices
+        let devices = getAVCaptureDevices()
         guard !devices.isEmpty else {
-            // TOOD: handle no capture device here
             fatalError("Missing capture devices.")
         }
         return devices[index]
+    }
+    
+    func getAVCaptureDevices() -> [AVCaptureDevice] {
+        self.deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown, .builtInMicrophone, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
+        return self.deviceDiscoverySession.devices
     }
 }
 
@@ -82,7 +112,7 @@ extension CameraInputController {
             if blinkCount == 0 {
                 // no face detected
                 print("no face detected")
-                if noFaceMinutes + 1 >= 5 {
+                if noFaceMinutes + 1 >= 2 {
                     self.stop()
                     appDelegate.showNoFaceDetectedAlert()
                 } else {
