@@ -19,18 +19,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let defaults = UserDefaults.standard
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // this prevents the app icon from showing in Dock
-        NSApp.setActivationPolicy(.accessory)
         NSApp.activate(ignoringOtherApps: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasConnected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasDisconnected, object: nil)
-
-        constructStatusMenu()
-        camera.$isTracking
-            // TODO: update status bar icon here
-            .sink() {
-                print ("isTracking changed to \($0)")
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
         }
+        
+        constructStatusMenu()
         camera.start()
     }
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 // TODO: First launch experience
 
-struct FirstLaunchView: View {
+struct FirstLaunchContentView: View {
     var body: some View {
         Text("Hello, World!")
     }
@@ -17,6 +17,6 @@ struct FirstLaunchView: View {
 
 struct FirstLaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstLaunchView()
+        FirstLaunchContentView()
     }
 }

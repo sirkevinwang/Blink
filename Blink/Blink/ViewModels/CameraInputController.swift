@@ -12,6 +12,8 @@ import Cocoa
 final class CameraInputController: NSObject, ObservableObject {
     @Published var isTracking = false
     @Published var captureDeviceIndex = 0
+    var lowPowerMode = false
+    let EXPECTED_BLINK_COUNT = 15
     var blinkCount = 0
     var blinkCache = [Int]()
     var noFaceMinutes = 0
@@ -95,6 +97,7 @@ extension CameraInputController {
         self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkBlinkCount), userInfo: nil, repeats: true)
         self.captureSession.startRunning()
         self.isTracking = true
+        self.lowPowerMode = false
     }
     
     func stop() {
@@ -104,10 +107,11 @@ extension CameraInputController {
         }
         self.captureSession.stopRunning()
         self.isTracking = false
+        self.lowPowerMode = false
     }
     
     @objc func checkBlinkCount() {
-        if blinkCount < 15 {
+        if blinkCount < EXPECTED_BLINK_COUNT {
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             if blinkCount == 0 {
                 // no face detected
@@ -123,9 +127,11 @@ extension CameraInputController {
                 print("blink too slow")
                 appDelegate.showLowBlinkCountAlert(blinkCnt: blinkCount)
                 blinkCount = 0
+                self.lowPowerMode = false
             }
         } else {
             blinkCount = 0
+            self.lowPowerMode = false
         }
     }
 }
@@ -133,32 +139,37 @@ extension CameraInputController {
 extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if let detector = self.faceDetector {
-            let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-            let cameraImage = CIImage(cvPixelBuffer: pixelBuffer!)
-            let options = [CIDetectorEyeBlink: true, CIDetectorImageOrientation : 1] as [String : Any]
-            let features = detector.features(in: cameraImage, options: options)
-            
-            if (features.count == 1) {
-                let feature = features.first as! CIFaceFeature
-                if (feature.leftEyeClosed || feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
-                    blinkCache.append(1)
-                    
-                    if blinkCache.count > 3 {
-                        blinkCache.remove(at: 0)
-                    }
-                    
-                    if blinkCache.reduce(0, +) == 1 {
-                        blinkCount += 1
-                        print(blinkCount)
-                    }
-                    
-                } else {
-                    blinkCache.append(0)
-                    if blinkCache.count > 3 {
-                        blinkCache.remove(at: 0)
-                    }
-                }
+            if !lowPowerMode {
+                let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+                let cameraImage = CIImage(cvPixelBuffer: pixelBuffer!)
+                let options = [CIDetectorEyeBlink: true, CIDetectorImageOrientation : 1] as [String : Any]
+                let features = detector.features(in: cameraImage, options: options)
                 
+                if (features.count == 1) {
+                    let feature = features.first as! CIFaceFeature
+                    if (feature.leftEyeClosed || feature.rightEyeClosed && feature.faceAngle <= 25 && feature.faceAngle >= -25) {
+                        blinkCache.append(1)
+                        
+                        if blinkCache.count > 3 {
+                            blinkCache.remove(at: 0)
+                        }
+                        
+                        if blinkCache.reduce(0, +) == 1 {
+                            blinkCount += 1
+                            if blinkCount >= EXPECTED_BLINK_COUNT {
+                                self.lowPowerMode = true
+                            }
+                            print(blinkCount)
+                        }
+                        
+                    } else {
+                        blinkCache.append(0)
+                        if blinkCache.count > 3 {
+                            blinkCache.remove(at: 0)
+                        }
+                    }
+                    
+                }
             }
         }
     }
