@@ -60,9 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */,
-				0A4FE66525EFEC59001BEA76 /* WelcomeCompleteView.swift */,
 				0A15971825EEDE5D00608BEF /* WelcomeView.swift */,
 				0A4FE66225EFEBFA001BEA76 /* CameraCheckView.swift */,
+				0A4FE66525EFEC59001BEA76 /* WelcomeCompleteView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";

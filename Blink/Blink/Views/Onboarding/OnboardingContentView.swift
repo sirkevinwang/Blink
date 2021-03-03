@@ -12,11 +12,12 @@ struct OnboardingContentView: View {
     var body: some View {
         switch onboardingState {
         case .welcome:
-            WelcomeView()
+            WelcomeView(currentOnboardState: $onboardingState)
         case .cameraCheck:
-            CameraCheckView()
+            CameraCheckView(currentOnboardState: $onboardingState)
         case .done:
             WelcomeCompleteView()
+            // Need to call cam.start and construct status menu here
         }
     }
 }

@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct CameraCheckView: View {
+    @Binding var currentOnboardState: OnboardingStates
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            HStack {
+                VStack (alignment: .leading){
+                    Text("Camera Access")
+                        .fontWeight(.bold)
+                        .font(.largeTitle)
+                    Text("We use your camera to track eye blinks.")
+                        .font(.title3)
+                        .padding(.top, 10)
+                        .padding(.bottom, 13)
+                    
+                    Button(action: {
+                    }, label: {
+                        Text("Allow Access")
+                            .font(.body)
+                    })
+                    
+                }
+                Spacer()
+                Image("CameraIcon")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+            }
+            .padding(.horizontal, 60)
+
+            
+        }
     }
 }
 
-struct CameraCheckView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraCheckView()
-    }
-}

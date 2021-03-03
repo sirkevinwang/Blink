@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @Binding var currentOnboardState: OnboardingStates
     var body: some View {
         VStack {
             
             HStack {
-                Spacer()
                 VStack (alignment: .leading){
                     Text("Welcome to Blink")
                         .fontWeight(.bold)
@@ -23,7 +23,7 @@ struct WelcomeView: View {
                         .padding(.bottom, 13)
                     
                     Button(action: {
-                        
+                        currentOnboardState = .cameraCheck
                     }, label: {
                         Text("Get Started")
                             .font(.body)
@@ -34,15 +34,9 @@ struct WelcomeView: View {
                 Image("Logo")
                     .resizable()
                     .frame(width: 150, height: 150, alignment: .center)
-                Spacer()
             }
+            .padding(.horizontal, 60)
             
         }
-    }
-}
-
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
     }
 }
