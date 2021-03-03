@@ -28,9 +28,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         constructStatusMenu()
-        camera.start()
+        
+        if !defaults.bool(forKey: "DidFirstLaunch") {
+            // TODO: load view here
+            showWelcomeView()
+        } else {
+            camera.start()
+        }
     }
     
+    // MARK: Constructing Menus
     @objc func updateCameraMenu() {
         cameraMenuItems.forEach { menu.removeItem($0) }
         cameraMenuItems = []
@@ -114,6 +121,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        statusItem.button = NSStatusBarButton(image: NSImage(systemSymbolName: "star.fill", accessibilityDescription: nil), target: nil, action: nil)
     }
     
+    // MARK: Change camera function
+    
     @objc func toggleCameraDevice(sender: NSMenuItem) {
         let newDeviceIndex = sender.tag
         if newDeviceIndex == camera.captureDeviceIndex {
@@ -151,6 +160,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
     }
     
+    // MARK: Alerts
+    
     func showLowBlinkCountAlert(blinkCnt: Int) {
         showAlert(of: .lowBlinkCount, blinkCnt: blinkCnt)
     }
@@ -174,6 +185,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     enum BlinkAlertType {
         case lowBlinkCount
         case noFaceDetected
+    }
+    
+    // MARK: Welcome Views
+    func showWelcomeView() {
+        let contentView = OnboardingContentView()
+            .frame(minWidth: 720, maxWidth: .infinity, minHeight: 520, maxHeight: .infinity)
+
+
+        // Create the window and set the content view.
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 720, height: 520),
+            styleMask: [.titled, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.titlebarAppearsTransparent = true
+        window.titleVisibility = .hidden
+        window.center()
+        window.contentView = NSHostingView(rootView: contentView)
+        window.makeKeyAndOrderFront(nil)
+    }
+    
+    func welcomeViewDidFinishSetup() {
+        defaults.setValue(true, forKey: "DidFirstLaunch")
+        defaults.setValue(true, forKey: "v1.0")
+        camera.start()
     }
 }
 
