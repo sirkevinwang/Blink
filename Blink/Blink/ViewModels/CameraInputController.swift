@@ -53,7 +53,7 @@ final class CameraInputController: NSObject, ObservableObject {
             }
             captureSession.addInput(input)
         } catch {
-            // TODO: catch app crash here
+            // checks for no camera
             let alert = NSAlert()
             alert.alertStyle = .critical
             if self.getAVCaptureDevices().isEmpty {
@@ -62,12 +62,10 @@ final class CameraInputController: NSObject, ObservableObject {
 
             } else {
                 alert.messageText = "Cannot Access Camera"
-                alert.informativeText = "Make sure you have given Blink permission to use your camera. Check your privacy settings in System Preferences for more detail."
-                
+                alert.informativeText = "Make sure you have given Blink permission to use your camera. Open System Preferences and navigate to Security & Privacy > Camera to grant Blink permission to access your camera."
             }
             alert.runModal()
             NSApp.terminate(self)
-            fatalError()
         }
     }
     

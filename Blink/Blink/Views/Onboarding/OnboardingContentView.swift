@@ -15,9 +15,10 @@ struct OnboardingContentView: View {
             WelcomeView(currentOnboardState: $onboardingState)
         case .cameraCheck:
             CameraCheckView(currentOnboardState: $onboardingState)
+        case.cameraFailed:
+            CameraCheckFailedView()
         case .done:
             WelcomeCompleteView()
-            // Need to call cam.start and construct status menu here
         }
     }
 }
@@ -25,5 +26,6 @@ struct OnboardingContentView: View {
 enum OnboardingStates {
     case welcome
     case cameraCheck
+    case cameraFailed
     case done
 }

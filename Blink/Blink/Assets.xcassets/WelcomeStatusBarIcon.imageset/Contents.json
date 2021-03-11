@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Icon-514.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CameraIcon.png",
+      "filename" : "Icon-512.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Icon-513.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftUI
+import AVFoundation
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -20,20 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.activate(ignoringOtherApps: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasConnected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasDisconnected, object: nil)
-        
-        if let button = statusItem.button {
-            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-        }
-    
-        if !defaults.bool(forKey: "DidFirstLaunch") {
-            // TODO: load view here
-            showWelcomeView()
-        } else {
-            camera.start()
-            constructStatusMenu()
-        }
+        onLaunch()
     }
     
     // MARK: Constructing Menus
@@ -64,11 +52,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.runModal()
             NSApp.terminate(self)
         } else {
-//            // catches hot unplug of AVCaptureDevice
-//            if camera.captureDeviceIndex >= devices.count {
-//                camera.captureDeviceIndex = 0
-//                camera.setAVCaptureDevice()
-//            }
+            //            // catches hot unplug of AVCaptureDevice
+            //            if camera.captureDeviceIndex >= devices.count {
+            //                camera.captureDeviceIndex = 0
+            //                camera.setAVCaptureDevice()
+            //            }
             
             // load camera name in defaults if set
             var preferredCameraName = ""
@@ -115,11 +103,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
     
-    func constructStatusItem() {
-        // TODO: add image to status bar item
-//        statusItem.button = NSStatusBarButton(image: NSImage(systemSymbolName: "star.fill", accessibilityDescription: nil), target: nil, action: nil)
-    }
-    
     // MARK: Change camera function
     
     @objc func toggleCameraDevice(sender: NSMenuItem) {
@@ -140,7 +123,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openAboutView() {
         let aboutView = AboutView()
-
+        
         // Create the window and set the content view.
         // FIXME: need to put this window on the top
         let window = NSWindow(
@@ -159,8 +142,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
     }
     
-    // MARK: Alerts
-    
+    // MARK: Blink Alerts
     func showLowBlinkCountAlert(blinkCnt: Int) {
         showAlert(of: .lowBlinkCount, blinkCnt: blinkCnt)
     }
@@ -170,7 +152,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showAlert(of type: BlinkAlertType, blinkCnt: Int?) {
-        print(blinkCnt)
+        print(blinkCnt!)
         var alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
         if type == .noFaceDetected {
             alert = AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)
@@ -190,8 +172,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showWelcomeView() {
         let contentView = OnboardingContentView()
             .frame(minWidth: 720, maxWidth: .infinity, minHeight: 520, maxHeight: .infinity)
-
-
+        
         // Create the window and set the content view.
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 720, height: 520),
@@ -203,12 +184,60 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
+        window.level = .floating
     }
-    
+ 
     func welcomeViewDidFinishSetup() {
         defaults.setValue(true, forKey: "DidFirstLaunch")
         defaults.setValue(true, forKey: "v1.0")
-        camera.start()
+        onLaunch()
     }
+    
+    // MARK: Onlaunch
+    func onLaunch() {
+        if !defaults.bool(forKey: "DidFirstLaunch") {
+            // load welcome view
+            showWelcomeView()
+        } else {
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized: // The user has previously granted access to the camera.
+                setupCameraUI()
+                
+            case .notDetermined: // The user has not yet been asked for camera access.
+                showWelcomeView()
+                
+                
+            case .denied, .restricted: // The user can't grant access due to restrictions.
+                self.showNoCamAccessAlert()
+            @unknown default:
+                self.showNoCamAccessAlert()
+                
+            }
+            
+        }
+    }
+    
+    // CamUI Setup
+    func setupCameraUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasConnected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCameraMenu), name: NSNotification.Name.AVCaptureDeviceWasDisconnected, object: nil)
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
+        }
+        camera.start()
+        constructStatusMenu()
+    }
+    
+    // show no camera access alert
+    func showNoCamAccessAlert() {
+        let alert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = "Cannot Access Camera"
+        alert.informativeText = "Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera."
+        alert.runModal()
+        NSApp.terminate(self)
+    }
+    
 }
 

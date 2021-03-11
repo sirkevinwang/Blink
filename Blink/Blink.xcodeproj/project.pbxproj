@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A15971925EEDE5D00608BEF /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15971825EEDE5D00608BEF /* WelcomeView.swift */; };
-		0A4FE66025EFE9C5001BEA76 /* OnboardingViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4FE65F25EFE9C5001BEA76 /* OnboardingViewRouter.swift */; };
 		0A4FE66325EFEBFA001BEA76 /* CameraCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4FE66225EFEBFA001BEA76 /* CameraCheckView.swift */; };
 		0A4FE66625EFEC59001BEA76 /* WelcomeCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4FE66525EFEC59001BEA76 /* WelcomeCompleteView.swift */; };
 		0A7E4D6B25A827E5003CC98A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7E4D6A25A827E5003CC98A /* AlertView.swift */; };
@@ -16,6 +15,7 @@
 		0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82209525A53B35008007D9 /* MenuToggleView.swift */; };
 		0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAA25A7DF6500E66296 /* AboutView.swift */; };
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
+		0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
 		0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */; };
 		0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */; };
@@ -26,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		0A15971825EEDE5D00608BEF /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		0A4FE65F25EFE9C5001BEA76 /* OnboardingViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewRouter.swift; sourceTree = "<group>"; };
 		0A4FE66225EFEBFA001BEA76 /* CameraCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckView.swift; sourceTree = "<group>"; };
 		0A4FE66525EFEC59001BEA76 /* WelcomeCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCompleteView.swift; sourceTree = "<group>"; };
 		0A7E4D6A25A827E5003CC98A /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		0A82209525A53B35008007D9 /* MenuToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleView.swift; sourceTree = "<group>"; };
 		0A859CAA25A7DF6500E66296 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
+		0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckFailedView.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
 		0AF04ADE25A3FE5F00879D9B /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +62,7 @@
 				0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */,
 				0A15971825EEDE5D00608BEF /* WelcomeView.swift */,
 				0A4FE66225EFEBFA001BEA76 /* CameraCheckView.swift */,
+				0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */,
 				0A4FE66525EFEC59001BEA76 /* WelcomeCompleteView.swift */,
 			);
 			path = Onboarding;
@@ -72,7 +73,6 @@
 			children = (
 				0A82206A25A49604008007D9 /* CameraInputController.swift */,
 				0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */,
-				0A4FE65F25EFE9C5001BEA76 /* OnboardingViewRouter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,9 +213,9 @@
 				0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */,
 				0A15971925EEDE5D00608BEF /* WelcomeView.swift in Sources */,
 				0A82206B25A49604008007D9 /* CameraInputController.swift in Sources */,
+				0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */,
 				0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */,
 				0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */,
-				0A4FE66025EFE9C5001BEA76 /* OnboardingViewRouter.swift in Sources */,
 				0A4FE66325EFEBFA001BEA76 /* CameraCheckView.swift in Sources */,
 				0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */,
 			);
