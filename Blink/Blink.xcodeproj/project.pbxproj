@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -149,7 +149,6 @@
 				E3D5EFB65E32AE24B466C021 /* Pods-Blink.debug.xcconfig */,
 				797B04995B2FBD532D677EF0 /* Pods-Blink.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -447,6 +446,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -478,6 +478,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
