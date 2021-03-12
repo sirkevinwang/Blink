@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @Binding var currentOnboardState: OnboardingStates
     var body: some View {
+        ZStack(alignment: .bottom) {
         VStack {
             Spacer()
             HStack {
@@ -37,6 +38,11 @@ struct WelcomeView: View {
             }
             .padding(.horizontal, 60)
             Spacer()
+        }
+            Text("Blink isn't a medical app and can't offer medical diagnosis, treatment, or advice.")
+                .font(.caption)
+                .foregroundColor(Color(.systemGray))
+                .padding(.bottom)
         }
     }
 }
