@@ -39,7 +39,7 @@ struct WelcomeView: View {
             .padding(.horizontal, 60)
             Spacer()
         }
-            Text("Blink isn't a medical app and can't offer medical diagnosis, treatment, or advice.")
+            Text("By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice.")
                 .font(.caption)
                 .foregroundColor(Color(.systemGray))
                 .padding(.bottom)

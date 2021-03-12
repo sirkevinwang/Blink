@@ -199,6 +199,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func welcomeViewDidFinishSetup() {
         defaults.setValue(true, forKey: "DidFirstLaunch")
         defaults.setValue(true, forKey: "v1.0")
+        Analytics.trackEvent("New User")
+        Analytics.trackEvent("New v1.0")
         onLaunch()
     }
     

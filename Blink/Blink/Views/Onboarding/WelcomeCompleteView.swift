@@ -14,7 +14,7 @@ struct WelcomeCompleteView: View {
         VStack {
             HStack {
                 VStack (alignment: .leading){
-                    Text("Where's Blink")
+                    Text("Where's Blink?")
                         .fontWeight(.bold)
                         .font(.largeTitle)
                     Text("You can always find Blink on your status bar.")
