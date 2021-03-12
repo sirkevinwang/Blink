@@ -5,9 +5,14 @@
 //  Created by Kevin Wang on 1/4/21.
 //
 
+
 import Cocoa
 import SwiftUI
 import AVFoundation
+
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,6 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.activate(ignoringOtherApps: true)
+        AppCenter.start(withAppSecret: "8944eef6-51d5-4f20-bacf-e4c5225d11ab", services:[
+          Analytics.self,
+          Crashes.self
+        ])
         onLaunch()
     }
     
@@ -152,7 +161,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showAlert(of type: BlinkAlertType, blinkCnt: Int?) {
-        print(blinkCnt!)
+//        print(blinkCnt!)
         var alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
         if type == .noFaceDetected {
             alert = AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)

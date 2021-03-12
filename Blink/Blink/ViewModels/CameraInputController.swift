@@ -9,6 +9,9 @@ import AVFoundation
 import CoreImage
 import Cocoa
 
+import AppCenter
+import AppCenterAnalytics
+
 final class CameraInputController: NSObject, ObservableObject {
     @Published var isTracking = false
     @Published var captureDeviceIndex = 0
@@ -95,7 +98,7 @@ extension CameraInputController {
         self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkBlinkCount), userInfo: nil, repeats: true)
         self.captureSession.startRunning()
         self.isTracking = true
-        self.lowPowerMode = false
+//        self.lowPowerMode = false
     }
     
     func stop() {
@@ -105,7 +108,7 @@ extension CameraInputController {
         }
         self.captureSession.stopRunning()
         self.isTracking = false
-        self.lowPowerMode = false
+//        self.lowPowerMode = false
     }
     
     @objc func checkBlinkCount() {
@@ -113,23 +116,29 @@ extension CameraInputController {
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             if blinkCount == 0 {
                 // no face detected
-                print("no face detected")
+//                print("no face detected")
                 if noFaceMinutes + 1 >= 2 {
                     self.stop()
                     appDelegate.showNoFaceDetectedAlert()
+                    Analytics.trackEvent("No face detected")
+
                 } else {
                     noFaceMinutes += 1
                 }
             } else {
                 // too few blinks
-                print("blink too slow")
+//                print("blink too slow")
+                Analytics.trackEvent("low blink count", withProperties: ["blinks" : "\(blinkCount)"])
                 appDelegate.showLowBlinkCountAlert(blinkCnt: blinkCount)
                 blinkCount = 0
-                self.lowPowerMode = false
+//                self.lowPowerMode = false
+                
+                
             }
         } else {
+            Analytics.trackEvent("good count", withProperties: ["blinks" : "\(blinkCount)"])
             blinkCount = 0
-            self.lowPowerMode = false
+//            self.lowPowerMode = false
         }
     }
 }
@@ -137,7 +146,7 @@ extension CameraInputController {
 extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if let detector = self.faceDetector {
-            if !lowPowerMode {
+//            if !lowPowerMode {
                 let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
                 let cameraImage = CIImage(cvPixelBuffer: pixelBuffer!)
                 let options = [CIDetectorEyeBlink: true, CIDetectorImageOrientation : 1] as [String : Any]
@@ -155,7 +164,7 @@ extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         if blinkCache.reduce(0, +) == 1 {
                             blinkCount += 1
                             if blinkCount >= EXPECTED_BLINK_COUNT {
-                                self.lowPowerMode = true
+//                                self.lowPowerMode = true
                             }
                             print(blinkCount)
                         }
@@ -168,7 +177,7 @@ extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     }
                     
                 }
-            }
+//            }
         }
     }
 }

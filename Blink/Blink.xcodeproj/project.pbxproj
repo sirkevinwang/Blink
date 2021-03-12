@@ -22,6 +22,7 @@
 		0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE525A3FE6100879D9B /* Assets.xcassets */; };
 		0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE825A3FE6100879D9B /* Preview Assets.xcassets */; };
 		0AF04AEC25A3FE6100879D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AEA25A3FE6100879D9B /* Main.storyboard */; };
+		1B552BB73ACFC056F626F9B6 /* Pods_Blink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30859DA08EF4576872BBDAF /* Pods_Blink.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,9 @@
 		0AF04AEB25A3FE6100879D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AF04AED25A3FE6100879D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF04AEE25A3FE6100879D9B /* Blink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blink.entitlements; sourceTree = "<group>"; };
+		797B04995B2FBD532D677EF0 /* Pods-Blink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blink.release.xcconfig"; path = "Target Support Files/Pods-Blink/Pods-Blink.release.xcconfig"; sourceTree = "<group>"; };
+		A30859DA08EF4576872BBDAF /* Pods_Blink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3D5EFB65E32AE24B466C021 /* Pods-Blink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blink.debug.xcconfig"; path = "Target Support Files/Pods-Blink/Pods-Blink.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B552BB73ACFC056F626F9B6 /* Pods_Blink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,8 @@
 			children = (
 				0AF04AE025A3FE5F00879D9B /* Blink */,
 				0AF04ADF25A3FE5F00879D9B /* Products */,
+				80F4CF3E4D9418BC1F253F21 /* Pods */,
+				9A18814599B5D5528FB48BE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +143,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		80F4CF3E4D9418BC1F253F21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3D5EFB65E32AE24B466C021 /* Pods-Blink.debug.xcconfig */,
+				797B04995B2FBD532D677EF0 /* Pods-Blink.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9A18814599B5D5528FB48BE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A30859DA08EF4576872BBDAF /* Pods_Blink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AF04AF125A3FE6100879D9B /* Build configuration list for PBXNativeTarget "Blink" */;
 			buildPhases = (
+				957BE1A7152050D6CCDADE74 /* [CP] Check Pods Manifest.lock */,
+				FA6F0793478755AD32C28C9C /* [CP] Prepare Artifacts */,
 				0AF04ADA25A3FE5F00879D9B /* Sources */,
 				0AF04ADB25A3FE5F00879D9B /* Frameworks */,
 				0AF04ADC25A3FE5F00879D9B /* Resources */,
+				9BDD9EE42569E36D39A3164A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +228,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		957BE1A7152050D6CCDADE74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Blink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BDD9EE42569E36D39A3164A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA6F0793478755AD32C28C9C /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blink/Pods-Blink-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AF04ADA25A3FE5F00879D9B /* Sources */ = {
@@ -352,6 +439,7 @@
 		};
 		0AF04AF225A3FE6100879D9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D5EFB65E32AE24B466C021 /* Pods-Blink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +470,7 @@
 		};
 		0AF04AF325A3FE6100879D9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797B04995B2FBD532D677EF0 /* Pods-Blink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

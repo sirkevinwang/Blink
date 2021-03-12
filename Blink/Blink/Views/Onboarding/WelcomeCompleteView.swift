@@ -41,7 +41,7 @@ struct WelcomeCompleteView: View {
             
         }
         .onAppear(perform: {
-            // TODO: need to call setupUI in app delegate
+            // call setupUI in app delegate
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             appDelegate.welcomeViewDidFinishSetup()
         })
