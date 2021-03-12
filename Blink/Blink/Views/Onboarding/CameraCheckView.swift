@@ -10,11 +10,12 @@ import AVFoundation
 
 struct CameraCheckView: View {
     @Binding var currentOnboardState: OnboardingStates
-
+    
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
+            
             VStack {
-                
+                Spacer()
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Camera Access")
@@ -58,12 +59,14 @@ struct CameraCheckView: View {
                         .frame(width: 150, height: 150, alignment: .center)
                 }
                 .padding(.horizontal, 60)
+                Spacer()
                 
-                Text("Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks.")
-                    .font(.caption)
-                    .foregroundColor(Color(.systemGray))
-                    
             }
+            Text("Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks.")
+                .font(.caption)
+                .foregroundColor(Color(.systemGray))
+                .padding(.bottom)
+            
         }
         
     }

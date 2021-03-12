@@ -11,7 +11,7 @@ struct WelcomeView: View {
     @Binding var currentOnboardState: OnboardingStates
     var body: some View {
         VStack {
-            
+            Spacer()
             HStack {
                 VStack (alignment: .leading){
                     Text("Welcome to Blink")
@@ -36,7 +36,7 @@ struct WelcomeView: View {
                     .frame(width: 150, height: 150, alignment: .center)
             }
             .padding(.horizontal, 60)
-            
+            Spacer()
         }
     }
 }
