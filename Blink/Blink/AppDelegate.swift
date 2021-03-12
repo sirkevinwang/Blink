@@ -206,7 +206,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             case .notDetermined: // The user has not yet been asked for camera access.
                 showWelcomeView()
                 
-                
             case .denied, .restricted: // The user can't grant access due to restrictions.
                 self.showNoCamAccessAlert()
             @unknown default:
