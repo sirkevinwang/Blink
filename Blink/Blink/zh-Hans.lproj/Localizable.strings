@@ -10,13 +10,13 @@
 "Welcome to Blink" = "欢迎使用Blink";
 "A fun little app that reminds you to blink more frequently." = "一个有趣的app，提醒你看屏幕时多眨眨眼。";
 "Get Started" = "开始使用";
-"By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice." = "通过使用此app，您同意并理解它不提供医疗上的诊断，理疗或建议。";
+"By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice." = "通过使用此app，你同意并理解它不提供医疗上的诊断，理疗或建议。";
 
 // Onboarding - Camera Access
 "Camera Access" = "使用摄像头";
 "We use your camera to track eye blinks." = "我们使用你的摄像头来追踪你的眨眼次数。";
 "Allow Access" = "允许使用";
-"Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks." = "Blink不存储或上传您的摄像头数据。我们使用设备端处理的机器学习来追踪眨眼次数。";
+"Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks." = "Blink不存储或上传你的摄像头数据。我们使用设备端处理的机器学习来追踪眨眼次数。";
 
 // Onboarding - No cam
 "Camera Access Not Granted" = "摄像头授权失败";
@@ -33,16 +33,15 @@
 "Start" = "开始";
 "Stop" = "停止";
 "Camera" = "摄像头";
-"About" = "关于";
+"About" = "关于Blink";
 "Quit" = "关闭程序";
 
 // Alerts
 "%lld blinks per minute" = "每分钟眨眼%lld次";
-"No face or blinks detected" = "没有";
+"No face or blinks detected" = "没有侦测到人脸或眨眼";
 "Try to Blink More" = "请多眨眼";
 
 // AppDelegateAlerts
-
 "Cannot Access Camera" = "无法使用摄像头";
 "Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera." = "请打开系统偏好设置，然后点击安全性与隐私 > 摄像头来给Blink使用你的摄像头的权限。";
 "Blink More" = "请多眨眼";

@@ -26,10 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.activate(ignoringOtherApps: true)
-//        AppCenter.start(withAppSecret: "8944eef6-51d5-4f20-bacf-e4c5225d11ab", services:[
-//          Analytics.self,
-//          Crashes.self
-//        ])
+        AppCenter.start(withAppSecret: "8944eef6-51d5-4f20-bacf-e4c5225d11ab", services:[
+          Analytics.self,
+          Crashes.self
+        ])
         onLaunch()
     }
     

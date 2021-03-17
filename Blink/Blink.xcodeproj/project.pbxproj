@@ -35,6 +35,8 @@
 		0A82209525A53B35008007D9 /* MenuToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleView.swift; sourceTree = "<group>"; };
 		0A859CAA25A7DF6500E66296 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
+		0A883E3E260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		0A883E3F260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckFailedView.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 0AF04AD525A3FE5F00879D9B;
 			productRefGroup = 0AF04ADF25A3FE5F00879D9B /* Products */;
@@ -322,6 +325,7 @@
 			children = (
 				0ADEADC92600FD1F00454E3D /* zh-Hans */,
 				0ADEADCC2600FD2F00454E3D /* en */,
+				0A883E3F260282F9009AB36D /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -331,6 +335,7 @@
 			children = (
 				0AF04AEB25A3FE6100879D9B /* Base */,
 				0ADEADC12600F56900454E3D /* zh-Hans */,
+				0A883E3E260282F9009AB36D /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

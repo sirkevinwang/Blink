@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Blink
+
+  Created by Kevin Wang on 3/16/21.
+  
+*/
+
+"Welcome to Blink" = "歡迎使用Blink";
+"A fun little app that reminds you to blink more frequently." = "一個有趣的app，提醒你看屏幕時多眨眨眼。";
+"Get Started" = "開始使用";
+"By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice." = "通過使用此app，你同意並理解它不提供醫療上的診斷，理療或建議。";
+
+// Onboarding - Camera Access
+"Camera Access" = "使用攝像頭";
+"We use your camera to track eye blinks." = "我們使用你的攝像頭來追踪你的眨眼次數。";
+"Allow Access" = "允許使用";
+"Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks." = "Blink不存儲或上傳你的攝像頭數據。我們使用設備端處理的機器學習來追踪眨眼次數。 ";
+
+// Onboarding - No cam
+"Camera Access Not Granted" = "攝像頭授權失敗";
+"You can open System Preferences and navigate to Security & Privacy > Camera to grant Blink permission to access your camera." = "你可以打開系統偏好設置，然後點擊安全性與隱私 > 攝像頭來給Blink使用你的攝像頭的權限。";
+"Quit Blink" = "關閉Blink";
+
+// Onboarding - complete
+"Where's Blink?" = "Blink去哪了？";
+"You can always find Blink on your status bar." = "你可以在你的系統狀態欄上找到Blink。";
+"Done" = "完成";
+
+// Menu
+"Tracking Eye Blinks" = "正在追踪眨眼次數";
+"Start" = "開始";
+"Stop" = "停止";
+"Camera" = "攝像頭";
+"About" = "關於Blink";
+"Quit" = "關閉程序";
+
+// Alerts
+"%lld blinks per minute" = "每分鐘眨眼%lld次";
+"No face or blinks detected" = "沒有偵測到人臉或眨眼";
+"Try to Blink More" = "請多眨眼";
+
+// AppDelegateAlerts
+"Cannot Access Camera" = "無法使用攝像頭";
+"Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera." = "請打開系統偏好設置，然後點擊安全性與隱私 > 攝像頭來給Blink使用你的攝像頭的權限。";
+"Blink More" = "請多眨眼";
+"Tracking Paused" = "暫停眨眼追踪";
+"No Camera Detected" = "無攝像頭";
+"Make sure that you have connected to at least one camera before using Blink." = "在使用Blink之前，請保證你至少連接了一台攝像頭。";

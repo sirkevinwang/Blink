@@ -166,7 +166,7 @@ extension CameraInputController: AVCaptureVideoDataOutputSampleBufferDelegate {
                             if blinkCount >= EXPECTED_BLINK_COUNT {
 //                                self.lowPowerMode = true
                             }
-                            print(blinkCount)
+//                            print(blinkCount)
                         }
                         
                     } else {
