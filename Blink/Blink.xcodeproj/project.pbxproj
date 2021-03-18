@@ -15,6 +15,7 @@
 		0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82209525A53B35008007D9 /* MenuToggleView.swift */; };
 		0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAA25A7DF6500E66296 /* AboutView.swift */; };
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
+		0A883E472602ED2D009AB36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A883E492602ED2D009AB36D /* InfoPlist.strings */; };
 		0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
 		0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */; };
@@ -37,6 +38,9 @@
 		0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
 		0A883E3E260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		0A883E3F260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0A883E482602ED2D009AB36D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A883E4B2602ED31009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A883E4C2602ED32009AB36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckFailedView.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				0AF04AE525A3FE6100879D9B /* Assets.xcassets */,
 				0AF04AEA25A3FE6100879D9B /* Main.storyboard */,
 				0AF04AED25A3FE6100879D9B /* Info.plist */,
+				0A883E492602ED2D009AB36D /* InfoPlist.strings */,
 				0AF04AEE25A3FE6100879D9B /* Blink.entitlements */,
 				0AF04AE725A3FE6100879D9B /* Preview Content */,
 				0ADEADCA2600FD1F00454E3D /* Localizable.strings */,
@@ -233,6 +238,7 @@
 				0ADEADC82600FD1F00454E3D /* Localizable.strings in Resources */,
 				0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */,
 				0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */,
+				0A883E472602ED2D009AB36D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +326,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0A883E492602ED2D009AB36D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A883E482602ED2D009AB36D /* zh-Hans */,
+				0A883E4B2602ED31009AB36D /* zh-Hant */,
+				0A883E4C2602ED32009AB36D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		0ADEADCA2600FD1F00454E3D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,7 +486,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -503,7 +519,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
