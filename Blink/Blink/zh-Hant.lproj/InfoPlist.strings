@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Blink
+
+  Created by Kevin Wang on 3/17/21.
+  
+*/
+
+"NSCameraUsageDescription" = "我們使用你的攝像頭來追踪你的眨眼次數。";

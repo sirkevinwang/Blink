@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  Blink
+
+  Created by Kevin Wang on 3/16/21.
+  
+*/
+
+// Onboarding - Welcome
+"Welcome to Blink" = "Welcome to Blink";
+"A fun little app that reminds you to blink more frequently." = "A fun little app that reminds you to blink more frequently.";
+"Get Started" = "Get Started";
+"By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice." = "By using this app, you acknowledge that it does not offer medical diagnosis, treatment, or advice.";
+
+// Onboarding - Camera Access
+"Camera Access" = "Camera Access";
+"We use your camera to track eye blinks." = "We use your camera to track eye blinks.";
+"Allow Access" = "Allow Access";
+"Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks." = "Blink doesn't store or upload your camera data. We use on-device machine learning to detect eye blinks.";
+
+// Onboarding - No cam
+"Camera Access Not Granted" = "Camera Access Not Granted";
+"You can open System Preferences and navigate to Security & Privacy > Camera to grant Blink permission to access your camera." = "You can open System Preferences and navigate to Security & Privacy > Camera to grant Blink permission to access your camera.";
+"Quit Blink" = "Quit Blink";
+
+// Onboarding - complete
+"Where's Blink?" = "Where's Blink?";
+"You can always find Blink on your status bar." = "You can always find Blink on your status bar.";
+"Done" = "Done";
+
+// Menu
+"Tracking Eye Blinks" = "Tracking Eye Blinks";
+"Tracking Paused" = "Tracking Paused";
+"Start" = "Start";
+"Stop" = "Stop";
+"Camera" = "Camera";
+"About" = "About";
+"Quit" = "Quit";
+
+// Alerts
+"%lld blinks per minute" = "%lld blinks per minute";
+"No face or blinks detected" = "No face or blinks detected";
+"Try to Blink More" = "Try to Blink More";
+
+// AppDelegateAlerts
+
+"Cannot Access Camera" = "Cannot Access Camera";
+"Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera." = "Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera.";
+"Blink More" = "Blink More";
+"Tracking Paused" = "Tracking Paused";
+"No Camera Detected" = "No Camera Detected";
+"Make sure that you have connected to at least one camera before using Blink." = "Make sure that you have connected to at least one camera before using Blink.";

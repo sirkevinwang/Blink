@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         constructStartStopMenu()
         
         menu.addItem(NSMenuItem.separator())
-        let cameraItem = NSMenuItem(title: "Camera", action: nil, keyEquivalent: "")
+        let cameraItem = NSMenuItem(title: NSLocalizedString("Camera", comment: "this is about switching cameras"), action: nil, keyEquivalent: "")
         menu.addItem(cameraItem)
         
         constructCaptureDevicesMenu()
@@ -56,8 +56,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if devices.isEmpty {
             // FIXME: untested code
             let alert = NSAlert()
-            alert.messageText = "No Camera Detected"
-            alert.informativeText = "Make sure that you have connected to at least one camera before using Blink."
+            alert.messageText = NSLocalizedString("No Camera Detected", comment: "no cam alert")
+            alert.informativeText =  NSLocalizedString("Make sure that you have connected to at least one camera before using Blink.", comment: "alert user no cam recommendation")
             alert.runModal()
             NSApp.terminate(self)
         } else {
@@ -107,8 +107,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func constructMiscMenu() {
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "About", action: #selector(self.openAboutView), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: NSLocalizedString("About", comment: "about button in menu"), action: #selector(self.openAboutView), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: NSLocalizedString("Quit", comment: "quit button in menu"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
         statusItem.menu = menu
     }
     
@@ -162,9 +162,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showAlert(of type: BlinkAlertType, blinkCnt: Int?) {
 //        print(blinkCnt!)
-        var alert = AlertView(alertText: "Blink More", alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
+        var alert = AlertView(alertText: NSLocalizedString("Blink More", comment: "blink more alert"), alertIcon: Image(systemName: "eyebrow"), blinks: blinkCnt)
         if type == .noFaceDetected {
-            alert = AlertView(alertText: "Tracking Paused", alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)
+            alert = AlertView(alertText: NSLocalizedString("Tracking Paused", comment: "tracking poaused alert"), alertIcon: Image(systemName: "pause.circle.fill"), blinks: blinkCnt)
         }
         
         let alertHostedView = NSHostingView(rootView: alert)
@@ -243,8 +243,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showNoCamAccessAlert() {
         let alert = NSAlert()
         alert.alertStyle = .critical
-        alert.messageText = "Cannot Access Camera"
-        alert.informativeText = "Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera."
+        alert.messageText = NSLocalizedString("Cannot Access Camera", comment: "on launch no cam")
+        alert.informativeText = NSLocalizedString("Make sure you have given Blink permission to use your camera. Open System Preferences and go to Security & Privacy > Camera to grant Blink access to your camera.", comment: "on launch no cam access description")
         alert.runModal()
         NSApp.terminate(self)
     }

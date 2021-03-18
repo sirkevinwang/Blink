@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Blink
+
+  Created by Kevin Wang on 3/17/21.
+  
+*/
+
+"NSCameraUsageDescription" = "We use your camera to detect eye blinks.";

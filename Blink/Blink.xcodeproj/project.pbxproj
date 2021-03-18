@@ -15,9 +15,11 @@
 		0A82209625A53B35008007D9 /* MenuToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82209525A53B35008007D9 /* MenuToggleView.swift */; };
 		0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAA25A7DF6500E66296 /* AboutView.swift */; };
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
+		0A883E472602ED2D009AB36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A883E492602ED2D009AB36D /* InfoPlist.strings */; };
 		0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
 		0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */; };
+		0ADEADC82600FD1F00454E3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0ADEADCA2600FD1F00454E3D /* Localizable.strings */; };
 		0AF04AE225A3FE5F00879D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */; };
 		0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE525A3FE6100879D9B /* Assets.xcassets */; };
 		0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF04AE825A3FE6100879D9B /* Preview Assets.xcassets */; };
@@ -34,9 +36,17 @@
 		0A82209525A53B35008007D9 /* MenuToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuToggleView.swift; sourceTree = "<group>"; };
 		0A859CAA25A7DF6500E66296 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
+		0A883E3E260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		0A883E3F260282F9009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0A883E482602ED2D009AB36D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A883E4B2602ED31009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0A883E4C2602ED32009AB36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckFailedView.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
+		0ADEADC12600F56900454E3D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0ADEADC92600FD1F00454E3D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0ADEADCC2600FD2F00454E3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0AF04ADE25A3FE5F00879D9B /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF04AE125A3FE5F00879D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF04AE525A3FE6100879D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,8 +139,10 @@
 				0AF04AE525A3FE6100879D9B /* Assets.xcassets */,
 				0AF04AEA25A3FE6100879D9B /* Main.storyboard */,
 				0AF04AED25A3FE6100879D9B /* Info.plist */,
+				0A883E492602ED2D009AB36D /* InfoPlist.strings */,
 				0AF04AEE25A3FE6100879D9B /* Blink.entitlements */,
 				0AF04AE725A3FE6100879D9B /* Preview Content */,
+				0ADEADCA2600FD1F00454E3D /* Localizable.strings */,
 			);
 			path = Blink;
 			sourceTree = "<group>";
@@ -204,6 +216,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 0AF04AD525A3FE5F00879D9B;
 			productRefGroup = 0AF04ADF25A3FE5F00879D9B /* Products */;
@@ -221,8 +235,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF04AEC25A3FE6100879D9B /* Main.storyboard in Resources */,
+				0ADEADC82600FD1F00454E3D /* Localizable.strings in Resources */,
 				0AF04AE925A3FE6100879D9B /* Preview Assets.xcassets in Resources */,
 				0AF04AE625A3FE6100879D9B /* Assets.xcassets in Resources */,
+				0A883E472602ED2D009AB36D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,10 +326,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0A883E492602ED2D009AB36D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A883E482602ED2D009AB36D /* zh-Hans */,
+				0A883E4B2602ED31009AB36D /* zh-Hant */,
+				0A883E4C2602ED32009AB36D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0ADEADCA2600FD1F00454E3D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ADEADC92600FD1F00454E3D /* zh-Hans */,
+				0ADEADCC2600FD2F00454E3D /* en */,
+				0A883E3F260282F9009AB36D /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0AF04AEA25A3FE6100879D9B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0AF04AEB25A3FE6100879D9B /* Base */,
+				0ADEADC12600F56900454E3D /* zh-Hans */,
+				0A883E3E260282F9009AB36D /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -325,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -386,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -446,7 +486,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -461,6 +501,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwang.Blink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -478,7 +519,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -493,6 +534,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwang.Blink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
