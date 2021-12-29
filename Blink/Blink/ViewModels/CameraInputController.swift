@@ -20,6 +20,9 @@ final class CameraInputController: NSObject, ObservableObject {
     var blinkCount = 0
     var blinkCache = [Int]()
     var noFaceMinutes = 0
+    let minCheckOnlineDelay = 30
+    let maxCheckOnlineDelay = 240 // Don't go above this value -- check 1 every 5 minutes when offline.
+    var checkOnlineDelay = 30 // If offline, go back online for a minute every 30 sceonds then increases to 60, 120, then stays at 240.
     private var faceDetector: CIDetector? = {
         let detectorOptions = [CIDetectorAccuracy : CIDetectorAccuracyHigh]
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: detectorOptions)
@@ -108,6 +111,9 @@ extension CameraInputController {
         }
         self.captureSession.stopRunning()
         self.isTracking = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(self.checkOnlineDelay)) {
+            self.start()
+        }
 //        self.lowPowerMode = false
     }
     
@@ -116,7 +122,7 @@ extension CameraInputController {
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             if blinkCount == 0 {
                 // no face detected
-//                print("no face detected")
+                checkOnlineDelay = min(checkOnlineDelay * 2, maxCheckOnlineDelay) // Double the offline checking delay upto 4 minutes
                 if noFaceMinutes + 1 >= 2 {
                     self.stop()
                     appDelegate.showNoFaceDetectedAlert()
@@ -131,13 +137,13 @@ extension CameraInputController {
                 Analytics.trackEvent("low blink count", withProperties: ["blinks" : "\(blinkCount)"])
                 appDelegate.showLowBlinkCountAlert(blinkCnt: blinkCount)
                 blinkCount = 0
+                checkOnlineDelay = minCheckOnlineDelay // Reset offline checking
 //                self.lowPowerMode = false
-                
-                
             }
         } else {
             Analytics.trackEvent("good count", withProperties: ["blinks" : "\(blinkCount)"])
             blinkCount = 0
+            checkOnlineDelay = minCheckOnlineDelay // Reset offline checking
 //            self.lowPowerMode = false
         }
     }
