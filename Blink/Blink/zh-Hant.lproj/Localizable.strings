@@ -34,6 +34,7 @@
 "Camera" = "攝像頭";
 "About" = "關於Blink";
 "Quit" = "關閉程序";
+"Show Blink Logs" = "打開眨眼次數統計";
 
 // Alerts
 "%lld blinks per minute" = "每分鐘眨眼%lld次";

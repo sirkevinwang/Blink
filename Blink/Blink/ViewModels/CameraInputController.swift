@@ -28,6 +28,8 @@ final class CameraInputController: NSObject, ObservableObject {
     private lazy var sampleBufferDelegateQueue = DispatchQueue(label: "CameraInput")
     private var deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown, .builtInMicrophone, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
     
+    let logger = Logger()
+    
     private lazy var captureSession: AVCaptureSession = {
         let session = AVCaptureSession()
         let device = getAVCaptureDevice(at: captureDeviceIndex)
@@ -112,6 +114,8 @@ extension CameraInputController {
     }
     
     @objc func checkBlinkCount() {
+        self.logger.log("\(blinkCount)")
+        
         if blinkCount < EXPECTED_BLINK_COUNT {
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             if blinkCount == 0 {

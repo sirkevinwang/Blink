@@ -36,6 +36,7 @@
 "Camera" = "Camera";
 "About" = "About";
 "Quit" = "Quit";
+"Show Blink Logs" = "Show Blink Logs";
 
 // Alerts
 "%lld blinks per minute" = "%lld blinks per minute";
