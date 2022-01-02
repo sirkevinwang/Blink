@@ -46,8 +46,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem.separator())
         let cameraItem = NSMenuItem(title: NSLocalizedString("Camera", comment: "this is about switching cameras"), action: nil, keyEquivalent: "")
         menu.addItem(cameraItem)
-        
         constructCaptureDevicesMenu()
+        
+        menu.addItem(NSMenuItem.separator())
+        constructLoggingItem()
+        
         constructMiscMenu()
     }
     
@@ -103,6 +106,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         toggleViewItem.view = NSHostingView(rootView: toggleView)
         toggleViewItem.view?.frame = CGRect(x: 0, y: 0, width: 250.0, height: 50.0)
         menu.addItem(toggleViewItem)
+    }
+    
+    func constructLoggingItem() {
+        let exportLogsItem = NSMenuItem(title: NSLocalizedString("Show Blink Logs", comment: "button for showing logs folder"), action: #selector(self.showLogs), keyEquivalent: "")
+        menu.addItem(exportLogsItem)
     }
     
     func constructMiscMenu() {
@@ -172,6 +180,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         bzNotification.runModal()
     }
     
+    // MARK: Logging Export
+    @objc func showLogs() {
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+        NSWorkspace.shared.open(documentsUrl)
+    }
+    
     enum BlinkAlertType {
         case lowBlinkCount
         case noFaceDetected
@@ -198,9 +212,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
  
     func welcomeViewDidFinishSetup() {
         defaults.setValue(true, forKey: "DidFirstLaunch")
-        defaults.setValue(true, forKey: "v1.0")
+        defaults.setValue(true, forKey: "v1.1")
         Analytics.trackEvent("New User")
-        Analytics.trackEvent("New v1.0")
+        Analytics.trackEvent("New v1.1")
         onLaunch()
     }
     

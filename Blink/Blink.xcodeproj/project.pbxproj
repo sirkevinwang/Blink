@@ -16,6 +16,7 @@
 		0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAA25A7DF6500E66296 /* AboutView.swift */; };
 		0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A859CAF25A7F4B800E66296 /* VisualEffectBackground.swift */; };
 		0A883E472602ED2D009AB36D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A883E492602ED2D009AB36D /* InfoPlist.strings */; };
+		0A8EFE1A2782197A00A940C0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8EFE192782197A00A940C0 /* Logger.swift */; };
 		0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */; };
 		0AB3ABBC25ACC73400E3537D /* BezelNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */; };
 		0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */; };
@@ -41,6 +42,7 @@
 		0A883E482602ED2D009AB36D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A883E4B2602ED31009AB36D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A883E4C2602ED32009AB36D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A8EFE192782197A00A940C0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		0A970F5325FA51210073C0C5 /* CameraCheckFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCheckFailedView.swift; sourceTree = "<group>"; };
 		0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelNotification.swift; sourceTree = "<group>"; };
 		0AB3ABC225AD4D3300E3537D /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				0A82206A25A49604008007D9 /* CameraInputController.swift */,
 				0AB3ABBB25ACC73400E3537D /* BezelNotification.swift */,
+				0A8EFE192782197A00A940C0 /* Logger.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				0A82206B25A49604008007D9 /* CameraInputController.swift in Sources */,
 				0A970F5425FA51210073C0C5 /* CameraCheckFailedView.swift in Sources */,
 				0A859CAB25A7DF6500E66296 /* AboutView.swift in Sources */,
+				0A8EFE1A2782197A00A940C0 /* Logger.swift in Sources */,
 				0AB3ABC325AD4D3300E3537D /* OnboardingContentView.swift in Sources */,
 				0A4FE66325EFEBFA001BEA76 /* CameraCheckView.swift in Sources */,
 				0A859CB025A7F4B800E66296 /* VisualEffectBackground.swift in Sources */,
@@ -486,7 +490,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -501,7 +505,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwang.Blink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -519,7 +523,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blink/Preview Content\"";
 				DEVELOPMENT_TEAM = Z6B7BYJ5UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -534,7 +538,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwang.Blink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
